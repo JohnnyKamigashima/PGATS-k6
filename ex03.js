@@ -8,7 +8,7 @@ import { Urls } from './utils/urls.js'
 export const options = {
   vus: 5,
   // iteration: 1
-  duration: '30s',
+  duration: '5s',
   thresholds: {
     http_req_waiting: ['p(90)<=300'],
     http_req_failed: ['rate<0.05'],
@@ -29,7 +29,7 @@ export default function () {
 
   acessaProdutos(urls, cookies, user)
   acessaNovoProduto(urls, cookies)
-
+  // handleSummary()
   sleep(1)
 }
 
