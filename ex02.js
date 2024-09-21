@@ -1,10 +1,10 @@
 // @ts-ignore
-import http from 'k6/http'
 // @ts-ignore
-import { sleep, check } from 'k6'
+import { sleep } from 'k6'
+import { visitLojinhaPage } from './utils/visitLojinhaPage'
 
 // const url = 'https://swapi.dev/api/people/1/'
-const url = 'http://165.227.93.41/lojinha-web/v2/'
+export const url = 'http://165.227.93.41/lojinha-web/v2/'
 
 export const options = {
   vus: 1,
@@ -20,22 +20,8 @@ export const options = {
   }
 }
 export default function () {
-  const response = http.get(url)
-  // console.log(Object.keys((response)))
-  // console.log(response.body)
-  // console.log(response.html().find('h4').text())
-  // console.log((response))
-  const capturado = response.html().find('h4').text()
-  console.log(`Texto do H4: ${capturado}`)
-
-  const button = response.html().find('button').text()
-  console.log(`Botão: ${button}`)
-
-  check(response, {
-    'status é 200': (r) => r.status === 200,
-    'Título está presente': (r) => r.html().find('h4').text().trim() === 'Acessar a Lojinha',
-    'O botão possui o texto Entrar': (r) => r.html().find('button').text().includes('Entrar')
-  })
+  visitLojinhaPage()
 
   sleep(1)
 }
+

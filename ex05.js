@@ -9,14 +9,17 @@ import { Faker, pt_BR } from 'https://esm.sh/@faker-js/faker'
 import { readDotEnv } from './utils/dotEnv.js'
 
 export const options = {
-  vus: 1,
-  iterations: '1',
+  // vus: 1,
+  // iterations: '1',
   thresholds: {
     http_req_failed: ['rate < 0.01']
   }, cloud: {
     name: 'ex05',
     projectId: 3715744,
-  }
+  },
+  stages: [
+    { target: 2, duration: '5s' },
+  ]
 }
 const _env = readDotEnv('.env')
 
