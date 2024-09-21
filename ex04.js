@@ -5,7 +5,7 @@ import { sleep, check } from 'k6'
 
 export const options = {
     vus: 1,
-    iterations: 1,
+    iterations: 10,
     thresholds: {
         http_req_failed: ['rate < 0.01']
     }
@@ -63,7 +63,7 @@ export default function () {
     const novoProdutoBody = {
         'produtonome': `JHK Produto ${Math.floor(Math.random() * 1000)}`,
         'produtovalor': `${Math.floor(Math.random() * 1000)}`,
-        'produtocores': `${cores[Math.floor(Math.random()) * cores.length]}`,
+        'produtocores': `${cores[Math.floor(Math.random() * cores.length)]}`,
         'action': ''
     }
 
