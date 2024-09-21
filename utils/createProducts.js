@@ -1,6 +1,6 @@
 import { post } from "./post.js"
 
-export function createProduto(token, baseUrl, produtos) {
+export function createProducts(token, baseUrl, produtos) {
     const url = `${baseUrl}/produtos`
     const header = {
         headers: {

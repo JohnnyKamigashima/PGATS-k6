@@ -3,7 +3,7 @@ import http from 'k6/http'
 // @ts-ignore
 import { check } from 'k6'
 
-export const acessaProdutos = (urls, cookies, userName) => {
+export const accessProducts = (urls, cookies, userName) => {
     const response = http.get(urls.baseUrl + urls.produtosUrl, {
         cookies: cookies
     })

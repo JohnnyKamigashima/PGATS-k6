@@ -1,3 +1,4 @@
+// @ts-nocheck
 // @ts-ignore
 import http from 'k6/http'
 // @ts-ignore
@@ -8,6 +9,10 @@ export const options = {
     iterations: 10,
     thresholds: {
         http_req_failed: ['rate < 0.01']
+    },
+    cloud: {
+        name: 'ex04',
+        projectId: 3715744,
     }
 }
 

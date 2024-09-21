@@ -1,11 +1,11 @@
 // @ts-nocheck
 import { check } from 'k6'
 import http from 'k6/http'
-import { arraysContemOsMesmosElementos } from "./cadastraProduto.js"
-import { createProduto } from "./createProduto.js"
+import { sameArrays } from "./sameArrays.js"
+import { createProducts } from "./createProducts.js"
 
-export function cadastraProduto(token, baseUrl, produto) {
-    const produtoId = createProduto(token, baseUrl, produto)
+export function addProducts(token, baseUrl, produto) {
+    const produtoId = createProducts(token, baseUrl, produto)
 
     const url = `${baseUrl}/produtos/${produtoId}`
 
@@ -27,7 +27,7 @@ export function cadastraProduto(token, baseUrl, produto) {
 
         'O segundo componente cor é igual': (r) => r.json('data.produtoCores').sort()[1] == r.json('data.produtoCores').sort()[1],
 
-        'Os componentes cores são iguais': (r) => arraysContemOsMesmosElementos(r.json('data.produtoCores'), produto.produtoCores)
+        'Os componentes cores são iguais': (r) => sameArrays(r.json('data.produtoCores'), produto.produtoCores)
     })
     return produtoId
 }

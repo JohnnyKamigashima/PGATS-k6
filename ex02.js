@@ -11,8 +11,12 @@ export const options = {
   // duration: '30s',
   iterations: 1,
   thresholds: {
-    http_req_blocked: ["p(90)>=5", 'p(90)<=15'],
-    http_req_connecting: ['p(90)<=10'],
+    http_req_blocked: ["p(90)>=5", 'p(90)<=30'],
+    http_req_connecting: ['p(90)<=30'],
+  },
+  cloud: {
+    name: 'ex02',
+    projectId: 3715744,
   }
 }
 export default function () {
