@@ -27,7 +27,7 @@ export default function () {
   urls.loginUrl = "/login/entrar"
   urls.produtosUrl = "/produto"
   urls.novoProdutoUrl = "/produto/novo"
-  
+
   console.log(__ENV.USUARIOSENHA)
 
   const user = 'admin'
